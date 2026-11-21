@@ -1,0 +1,2 @@
+# Handwritten-Digit-Classification-Using-Statistical-Learning-Methods
+Developed a handwritten digit classification system using the Kaggle MNIST dataset (42,000 images). Performed EDA, preprocessing, PCA, and compared Logistic Regression, LDA, k-NN, Decision Trees, Random Forest, and SVM. Applied cross-validation, hyperparameter tuning, and model diagnostics, achieving 97.10% validation accuracy with PCA + RBF SVM.
