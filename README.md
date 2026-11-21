@@ -28,7 +28,7 @@ data checks → EDA → stratified 80:20 split → baseline → 7 classifiers + 
 - **Validation:** 33,600 training / 8,400 held-out validation images (stratified, `random_state=42`)
 - **Primary metric:** accuracy (also macro precision, recall, F1 and confusion matrix)
 
-![Workflow](images/e_workflow.png)
+![Workflow](e_workflow.png)
 
 ---
 
@@ -56,7 +56,7 @@ data checks → EDA → stratified 80:20 split → baseline → 7 classifiers + 
 
 The selected tuned random forest (350 trees, `max_depth=25`, `max_features='sqrt'`) was refitted on all 42,000 labelled images to predict the 28,000 Kaggle test images.
 
-![Model comparison](images/acc_bar.png)
+![Model comparison](acc_bar.png)
 
 ---
 
@@ -67,10 +67,10 @@ The selected tuned random forest (350 trees, `max_depth=25`, `max_features='sqrt
 - Pixel intensities are bimodal: mostly background (0) with ink near 255.
 - 153 principal components retain 95 % of the variance (87 retain 90 %).
 
-![Class distribution](images/class_dist.png)
-![Mean images](images/mean_images.png)
-![Pixel variance](images/pixel_variance.png)
-![PCA explained variance](images/pca_cumvar.png)
+![Class distribution](class_dist.png)
+![Mean images](mean_images.png)
+![Pixel variance](pixel_variance.png)
+![PCA explained variance](pca_cumvar.png)
 
 ---
 
@@ -81,11 +81,11 @@ The selected tuned random forest (350 trees, `max_depth=25`, `max_features='sqrt
 - Digit **1** is easiest (F1 ≈ 0.989); digit **9** is hardest (F1 ≈ 0.955).
 - A single decision tree over-fits strongly (train 100 %, validation 85.5 %, gap 14.5 points); the SVM generalises best (gap 0.7 points).
 
-![Confusion matrix – SVM](images/cm_svm.png)
-![Misclassified examples](images/misclassified.png)
-![Train vs validation](images/e_gap.png)
-![Learning curve](images/learning_curve.png)
-![Random forest pixel importance](images/rf_importance.png)
+![Confusion matrix – SVM](cm_svm.png)
+![Misclassified examples](misclassified.png)
+![Train vs validation](e_gap.png)
+![Learning curve](learning_curve.png)
+![Random forest pixel importance](rf_importance.png)
 
 ---
 
@@ -99,7 +99,7 @@ The selected tuned random forest (**95.25 %**) is lower than three untuned model
 
 **Recommendation:** tune the PCA + SVM pipeline (C, gamma, PCA dimension) on the full training split and select among all candidates. Differences between the top three models are also small: the standard error of accuracy on 8,400 images is about 0.19 percentage points.
 
-![Before vs after tuning](images/e_before_after.png)
+![Before vs after tuning](e_before_after.png)
 
 ---
 
